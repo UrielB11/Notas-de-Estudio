@@ -1,0 +1,91 @@
+body{
+    background-color: black;
+}
+section{
+    margin: 10px 10px;
+    background-color: rgb(39, 40, 46);
+    display: block;
+    padding: 50px 25px; 
+    border-radius: 5px;
+    position: relative;
+}
+
+div{
+    margin: 50px 0;
+    width: 150px;
+    height:150px;
+    background: rgb(34, 73, 65);
+    border-radius: 2px;
+    text-align: center;
+    
+    }
+fieldset{
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+div:hover{
+    /*OUTLINE es una propiedad acortada,
+      3 valores: TAMAÑO DEL BORDE, TIPO Y COLOR.
+      Sirve para crear un borde si afectar a las demas
+      cajas*/
+    outline: 4px solid rgb(19, 248, 160); 
+    transition: .2s;
+    z-index: 100;
+}
+         /* POSITION:
+                    STATIC (valor por defecto)
+                    RELATIVE (espacios reservados)
+                    ABSOLUTE (desaparece el  espacio reservado. la caja se ajusta al tamaño del contenido si le definimos H y Width)
+                    FIXED (dejamos un objeto fijo y se sobrepone sobre los demas objetos)
+                    STYCKY (se comporta como un relative y se tranforma en fixed cuando llegamos al objeto)
+
+ (propiedad que permite posicionar un objeto, al posicionar un objeto se desbloquean nuevas funciones, como TOP, LEFT, RIGHT,BUTTOM, Z-INDEX) */
+h1{
+     position:absolute;
+     color: aliceblue;
+     top: 0;
+    
+ }
+ p{
+     opacity: .1;
+ }
+
+ .position-example{
+    position: relative;    
+    
+ }
+
+ .position-boxs div{
+    box-shadow: 5px -5px 10px 1.5px rgba(0, 0, 0, 0.2)
+ }
+ .position-boxs div:hover{
+    transform: scale(1.45);
+ }
+.caja5{
+    background-color: rgb(88, 34, 34);
+    position:relative;
+    top: 30px; /* Se corre 30px desde arriba*/
+    left: 30px;
+}
+.caja6{
+    background-color: rgb(139, 86, 131);
+    position:absolute;
+    top:0;
+}
+.caja7{
+    
+    background-color: rgb(79, 126, 179);
+    position: relative;
+    top: -30px;
+    left: -30px;
+}
+.caja8{
+    background-color: rgb(145, 134, 40);
+    position: absolute;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
