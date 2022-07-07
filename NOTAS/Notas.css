@@ -16,7 +16,7 @@ div{
     height:150px;
     background: rgb(34, 73, 65);
     border-radius: 2px;
-    text-align: center;
+    
     
     }
 fieldset{
@@ -82,7 +82,7 @@ h1{
     
     background-color: rgb(79, 126, 179);
     position: relative;
-    top: -30px;
+    top: -30px; 
     left: -30px;
 }
 .caja8{
@@ -142,7 +142,7 @@ h1{
     height: 270px;    
     overflow: hidden;
 }                
-img{
+.logo-css{
 width: 150px;
 position: relative;
 top: 130px; 
@@ -153,3 +153,74 @@ left: 100px;
     left: 0;
     transition: 1.3s;
 }
+
+/* PSEUDOELEMENTOS: (No forman parte del D.O.M.)
+                  ::first-line | block
+                  ::first-letter | block
+                  ::placeholder -> (para inputs)
+                  ::selection -> texto que se selecciona cuando hacemos click y arrastramos
+                 _____________________________
+                  ::after  |  Hijos- content (necesario)-inline:
+                           tag::before { content:"hola"}
+
+                  ::before  | hijos -content(necesario)-inline
+
+                             tag::after { content:"como estas?"}
+                
+                entonces quedaria "hola TAG como estas?*/
+
+/*PSEUDOCLASES:
+            :HOVER ->Cuando pasamos mouse por arriba de la etiqueta, se usa mucho la propiedad TRANSITION:"VALORs" para generrar una animacion progresiva
+            :LINK -> podemos editar las propiedades de los enlaces, [<a href="#"]
+            :VISITED ->como se debe comportar el enlace cuando fue visitado
+            :ACTIVE -> Cuando hacemos click en la etiqueta
+            :FOCUS ->una vez que hicimos click y tenemos seleccionado el elemento, generalmente se usa para los inputs
+            :LANG ->idioma [tag:lang(es)], podemos darle propiedades a una tag dependiendo del idioma en la que se encuentra. anteriormente en html debemos definir en lang dentro de la etiqueta.*/
+
+
+/* OBJET-FIT:
+             Fill->la img adopta la resolucion del contenedor(un asco)
+             CONTAIN-> se ajusta al centro del contenedor conservando la resolucion          
+             COVER-> se ajusta al la resolucion de contenedor recortando la img  
+             NONE->pone las resoluciones originales de la img y recorta lo que se excede del contenedor
+             SCALE-DOWN-> se queda con la porpiedad(none o contain) que tenga la resolucion mas chica.
+
+     OBJET-POSITION:
+                  left-right-top-button
+                  px-em-%-etc.
+*/
+.objfit-example div{
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+}
+
+.img-lambo1{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+   
+}
+
+.img-lambo2{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left;
+   
+}
+
+.img-lambo3{
+    width: 100%;
+    height: 100%;
+    object-fit: none;
+   
+}
+    .img-lambo2:active{
+         
+        object-position: right;
+        transition: object-position 2s;
+        }
+    
+    
+
