@@ -471,32 +471,103 @@ transition: .5s;
     outline: none;
     width: 80%;
 }
+.transition-conteiner:hover > .t-box:first-child{
+    background-color: #94faf2;
+    outline: none;
+    width: 80%;
+}
 
 .t-box:first-child{
     transition-timing-function: linear;  
-
 }
 .t-box:nth-child(2){
     transition-timing-function: ease;
-
 }
 .t-box:nth-child(3){
     transition-timing-function: ease-in;
-
 }
 .t-box:nth-child(4){
     transition-timing-function: ease-out;
-
 }
 .t-box:nth-child(5){
     transition-timing-function: ease-in-out;
-
 }
 .t-box:nth-child(6){
     transition-timing-function: step-start;
-
 }
 .t-box:last-child{
     transition-timing-function: step-end;
-
 }
+
+/*ANIMATION:
+
+        @keyframes + (nombre de la animación) {
+            0% { propiedades al inicio}
+            10% { propiedades en el trancurso del 10% de la animacion }
+            50% { prop a la mitad}
+            100% { props al final de la animation}
+
+    Luego se aplica la animacion a la etiqueta que queremos que haga dicha animacion.
+
+        ANIMATION-NAME: (nombre de la animacion)
+        ANIMATION-DURATION: Xs ->tiempo de duracion
+        ANIMATION-DELAY
+        ANIMATION-ITERATION-COUNT: numero | infinite -> (veces que se repite) 
+        ANIMATION-DIRECTION: 
+                            Alternate -> 0% al 100% y del 100% al 0%
+                            Reverse -> 100% al 0% 
+                            Alternate-reverse -> 100% al 0% y del 0% al 100%
+        ANIMATION-FILL-MODE: (forma final de la animation)
+                            Forwards -> se queda en la definicion final de la animacion (100%)
+                            Both -> la animacion inicia con las propiedades definidas en los primeros valores de keyframes (0%)   
+
+
+CUBIC-BEZIER -> SE USA TANTO PARA TRANSITION COMO PARA ANIMATION
+
+animation-timing-function: cubic-bezier(X,Y,X,Y)
+*/
+.a-box{
+    background-color: #7c3c85;
+    animation-name: hola, halo; 
+    animation-iteration-count: infinite;
+    animation-duration: 1s ;
+    animation-direction:alternate, normal;
+} 
+
+@keyframes hola {
+    0% {}
+    100% {background-color: #b56fbe99}
+        }
+
+@keyframes halo {
+    0% {}
+    10%{ outline: 2px solid rgba(8, 98, 98,0);}
+    20% { outline: 5px solid  rgba(8, 98, 98, .8);
+          border: 2px solid  rgb(39, 40, 46);
+          /* width: 154px;
+          height:154px;*/  } 
+    40% { outline: 7px solid rgba(8, 98, 98,.6); 
+          border: 5px solid  rgb(39, 40, 46);}
+    60% {  outline: 5px solid  rgba(8, 98, 98,.4);
+           border: 7px solid  rgb(39, 40, 46) }
+    80% { outline:2px solid rgba(8, 98, 98,.2);
+           border: 9px solid  rgb(39, 40, 46) }
+    100% { border: 11px solid  rgb(39, 40, 46) }
+        }
+
+.a-box:hover{
+    outline: none;
+}
+/* .a-box:active{
+    animation-name: halo;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+} */
+
+.animation-conteiner{
+    height: 350px;
+    align-items: center;
+}
+
