@@ -36,7 +36,7 @@ div:hover{
 }
     /* POSITION:
                 STATIC (valor por defecto)
-                RELATIVE (espacios reservados)
+                 
                 ABSOLUTE (desaparece el  espacio reservado. la caja se ajusta al tamaño del contenido si no le definimos H y Width)
                 FIXED (dejamos un objeto fijo y se sobrepone sobre los demas objetos)
                 STYCKY (se comporta como un relative y se tranforma en fixed cuando llegamos al objeto haciendo scroll)
