@@ -292,9 +292,198 @@ let texto= document.createTextNode("Editando desde JS!!!");
 parrafo.appendChild(texto);
 
 contenedor.lastElementChild.appendChild(parrafo);
+contenedor.lastElementChild.style.display="flex";
+contenedor.lastElementChild.style.justifyContent="center";
+contenedor.lastElementChild.style.alignItems="center";
 for (div of contenedor.children){
 div.style.backgroundColor= "#246";
 
 }
 console.log(contenedor.outerHTML);
 console.log(parrafo)
+
+
+/*
+Eventoooooooos!(event handlers)
+
+const button= document.QuerrySelector(".button");
+
+buttton.addEventListener("click",saludar) ->primer parametro es el evento.
+
+let saludar= ()=>{alert("hola")};
+
+flujo de eventos.
+ls eventos como el onclick en el dom pasa por todos los contenedores estalecidos.
+podemos determinar donde se va a ejecutar primero agregando al addEventListener("evento",(e)=>{funcion(e)},TRUE)
+
+Tambien tenemos event.stop.propagation() para que la escucha solo quede en ese solo elemento y no se propage a los padres.
+
+-------------VENTOS DEL MOUSE--------------
+CLICK
+DBCLICK
+MOUSEOVER -> Ocurre cuando el puntero se mueve sore un elemento o sobre uno de sus hijos
+MOUSEOUT ->Cuado el puntero se mueve fuera de un elemento o de sus elementos secundarios.
+MOUSEDOWN
+MOUSEUP
+  
+  otros
+ONTETMENU
+MOUSEENTER
+MOUSEMOVE
+MOUSELEAVE
+
+
+----------EVENTOS DE TECALDO-------------
+KEYDOWN
+KEYPRESSS
+KEYUP
+----------EVENTOS DE INTERFAZ------------- 
+
+*error - ocurre cuando sucede un error durante la carga de un archivo multimedia.
+
+*load - ocurre cuando un objeto se ha cargado
+
+*beforeunload - ocurre antes de que el documento esté a punto de descargarse
+
+*unload - ocurre una vez que se ha descargado una pagina
+
+*resize - ocurre cuando se cambia el tamafio de la vista del documento
+
+*scroll - ocurre cuando se desplaza la barra de desplazamiento de un elemento
+
+*select - ocurre después de que el usuario selecciona algtin texto de <input> 0 <textarea>
+
+*/ 
+function handleClick(){
+  this.classList.add("animation");
+  
+  this.removeEventListener("click", handleClick);
+}
+
+const button= document.createElement("input");
+button.setAttribute("type", "submit")
+button.setAttribute("value", "Click Me")
+contenedor.firstElementChild.appendChild(button)
+contenedor.firstElementChild.style.display="flex";
+contenedor.firstElementChild.style.justifyContent="center";
+contenedor.firstElementChild.style.alignItems="center";
+
+contenedor.firstElementChild.firstElementChild.addEventListener("click", handleClick);
+
+ /*
+  ------------Manejo de excepciones-----------------
+  tipos de excepciones 
+
+  exception de js.
+    Error
+    Evalerror
+    Internalerror
+    RangeError
+    Referenceerror
+    syntaxerror
+    TypeError
+    URTError
+    ect.....
+
+    para manejar esos errores tenemos las sentencias de control TRY & CATCH
+    (los errores de sintaxis no estan contemplados)
+
+
+    try{
+      hacerAlgo();
+    }
+    catch(error){
+      console.log("No se pudo hacer algo") ->cptura el error y ejecuta el codigo que definimos en vez de mostrar el error.
+    }
+    finally{
+      console.log("La sentencia finally siempre se ejecuta al ultimo, despues de ver el error")
+    }
+
+    ---------------
+    throw error ->fuerza a establecer el error
+
+
+--------------CALLBACKS---------------------
+Una funcion que recibe como parametro otra funcion.
+    ej:
+
+      funtion prueba(callback){
+        calback("hola");
+      }
+      function decirNombre(nombre){
+
+        console.log(nombre);
+      }
+
+      prueba(decirNombre);
+ 
+
+      class Persona{
+        constructor(name,instagram){
+          this.nombre=nombre;
+          this.instagram=instagram;
+        }
+      }
+      const datos =["Juan", "@Juanchi"],
+                   ["Pedro"."@Pepe"],
+                   ["Lucia","@Luchi_bb"];
+
+      const personas= [];
+      for(let i=0;i<datos.length;i++){
+        personas[i]=new Persona(datos[i][0],datos[i][1]);
+      }
+      const obtenerPersona(id,callback)=>{
+        if(personas[id]==undefined){
+          callback("No se ha encontrado la persona")
+        }else{
+          callback(null,personas[id],id)
+        }
+      }
+      obtenerPersona(3,(err,persona))=>{
+        if(err){console.log(err)}
+        else{
+          console.log(persona.nombre);
+          console.log(obtenerInstagram(id,))
+        }
+      })
+      const obtenerInstagram(id,callback)=>{
+        if(personas[id]==undefined){
+          callback("No se ha encontrado el instragram")
+        }else{
+          callback(null,personas[id].instragram)
+        }
+      }
+
+      obtenerPersona(2,(err,persona,id)=>{
+        if (err){console.log(err)}
+        else{
+          console.log(persona.nombre);
+          obtenerInstragram(id,(err,instagram)=>{
+            if (err){console.log(err)}
+            else {console-log(instagram)}
+          })
+        }
+      })
+
+
+      -----------------PROMESAS---------------------
+    Es un objeto que tiene dos callbacks, (rejected y resolve)
+     *uno representa la terminacion de una operacion asincrona (resolve)
+     *el otro, el fracaso de una operacion asincrona  (reject)
+
+     let nombre= "Uri"
+     const promesa= new Promise((resolve,reject)=>{
+        if(nombre!=="Uri"){reject("el nombre no es Uri")}
+        else {resolve (nombre)}
+     })
+
+     ----then()---------
+      then() es un metodo que tiene las promesas para poder acceder a los valores de resolve o reject.
+
+
+     promesa.then((resultado)=>{
+      console.log(resultado)}).catch((e)=>{
+        console.log(e)
+     })
+
+ */ 
